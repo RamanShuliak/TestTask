@@ -1,6 +1,6 @@
 ﻿namespace TestTask.Models
 {
-    public class Order
+    public class OrderModel
     {
         public int Id { get; set; }
 
@@ -12,6 +12,6 @@
 
         public int UserId { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual UserModel User { get; set; }
     }
 }

@@ -1,8 +1,8 @@
-﻿using TestTask.Enums;
+﻿using TestTask.DataBase.Enums;
 
 namespace TestTask.Models
 {
-    public class User
+    public class UserModel
     {
         public int Id { get; set; } 
 
@@ -10,6 +10,6 @@ namespace TestTask.Models
 
         public UserStatus Status { get; set; }
 
-        public virtual List<Order> Orders { get; set; }
+        public virtual List<OrderModel> Orders { get; set; }
     }
 }

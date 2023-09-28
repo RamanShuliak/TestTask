@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TestTask.Core\TestTask.Core.csproj" />
-    <ProjectReference Include="..\TestTask.Data.Abstractions\TestTask.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\TestTask.DataBase\TestTask.DataBase.csproj" />
   </ItemGroup>
 
 </Project>

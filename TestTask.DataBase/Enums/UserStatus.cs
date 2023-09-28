@@ -1,4 +1,4 @@
-﻿namespace TestTask.Enums
+﻿namespace TestTask.DataBase.Enums
 {
     public enum UserStatus
     {

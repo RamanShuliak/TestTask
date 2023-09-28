@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestTask.Enums;
-using TestTask.Models;
+using TestTask.DataBase.Entities;
+using TestTask.DataBase.Enums;
 
 namespace TestTask.Data
 {
@@ -21,13 +21,13 @@ namespace TestTask.Data
             modelBuilder.Entity<User>().HasData(
                 new User[]
                 {
-                    new User { Id=1, Email="user1@gmail.com", Status=UserStatus.Active},
-                    new User { Id=2, Email="user2@gmail.com", Status=UserStatus.Active},
-                    new User { Id=3, Email="user3@gmail.com", Status=UserStatus.Active},
-                    new User { Id=4, Email="user4@gmail.com", Status=UserStatus.Active},
-                    new User { Id=5, Email="user5@gmail.com", Status=UserStatus.Inactive},
-                    new User { Id=6, Email="user6@gmail.com", Status=UserStatus.Inactive},
-                    new User { Id=7, Email="user7@gmail.com", Status=UserStatus.Active},
+                    new User { Id=1, Email="user1@gmail.com", Status=(int)UserStatus.Active},
+                    new User { Id=2, Email="user2@gmail.com", Status=(int)UserStatus.Active},
+                    new User { Id=3, Email="user3@gmail.com", Status=(int)UserStatus.Active},
+                    new User { Id=4, Email="user4@gmail.com", Status=(int)UserStatus.Active},
+                    new User { Id=5, Email="user5@gmail.com", Status=(int)UserStatus.Inactive},
+                    new User { Id=6, Email="user6@gmail.com", Status=(int)UserStatus.Inactive},
+                    new User { Id=7, Email="user7@gmail.com", Status=(int)UserStatus.Active},
                 });
 
             modelBuilder.Entity<Order>().HasData(
