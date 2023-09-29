@@ -23,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TestTask.Business\TestTask.Business.csproj" />
+    <ProjectReference Include="..\TestTask.Core\TestTask.Core.csproj" />
+    <ProjectReference Include="..\TestTask.Data.Repositories\TestTask.Data.Repositories.csproj" />
     <ProjectReference Include="..\TestTask.DataBase\TestTask.DataBase.csproj" />
   </ItemGroup>
 

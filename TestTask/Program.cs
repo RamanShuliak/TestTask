@@ -1,5 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using TestTask.Data;
+using TestTask.Business.ServicesImplementation;
+using TestTask.Core.Abstractions;
+using TestTask.Data.Abstractions;
+using TestTask.Data.Abstractions.Repositories;
+using TestTask.Data.Repositories;
+using TestTask.DataBase;
+using TestTask.DataBase.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +15,12 @@ builder.Services.AddControllers();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IOrderService, OrderService>();
+
+builder.Services.AddScoped<IRepository<User>, Repository<User>>();
+builder.Services.AddScoped<IRepository<Order>, Repository<Order>>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

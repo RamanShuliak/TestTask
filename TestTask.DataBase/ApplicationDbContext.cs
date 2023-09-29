@@ -2,7 +2,7 @@
 using TestTask.DataBase.Entities;
 using TestTask.DataBase.Enums;
 
-namespace TestTask.Data
+namespace TestTask.DataBase
 {
     public class ApplicationDbContext : DbContext
     {

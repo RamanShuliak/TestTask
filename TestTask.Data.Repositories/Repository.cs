@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestTask.Data.Abstractions.Repositories;
+using TestTask.DataBase;
 using TestTask.DataBase.Entities;
 
 namespace TestTask.Data.Repositories

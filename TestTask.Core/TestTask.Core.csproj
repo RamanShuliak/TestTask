@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TestTask.DataBase\TestTask.DataBase.csproj" />
-    <ProjectReference Include="..\TestTask\TestTask.csproj" />
   </ItemGroup>
 
 </Project>

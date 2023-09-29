@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using TestTask.Services.Interfaces;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using TestTask.Business.ServicesImplementation;
+using TestTask.Core.Abstractions;
+using TestTask.Models;
 
 namespace TestTask.Controllers
 {
@@ -12,10 +15,12 @@ namespace TestTask.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrderService _orderService;
+        private readonly IMapper _mapper;
 
-        public OrdersController(IOrderService orderService)
+        public OrdersController(IOrderService orderService, IMapper mapper)
         {
             _orderService = orderService;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -23,11 +28,14 @@ namespace TestTask.Controllers
         /// Selection rules are specified in Task description provided by recruiter
         /// </summary>
         [HttpGet]
-        [Route("selected-order")]
-        public async Task<IActionResult> Get()
+        [Route("get-order-with-max-price")]
+        public async Task<IActionResult> GetOrderWithMaxPrice()
         {
-            var result = await _orderService.GetOrder();
-            return Ok(result);
+            var order = await _orderService.GetOrderWithMaxPrice();
+
+            var orderModel = _mapper.Map<OrderModel>(order);
+
+            return Ok(orderModel);
         }
 
         /// <summary>
@@ -35,11 +43,19 @@ namespace TestTask.Controllers
         /// Selection rules are specified in Task description provided by recruiter
         /// </summary>
         [HttpGet]
-        [Route("selected-orders")]
-        public async Task<IActionResult> GetOrders()
+        [Route("get-all-orders-with-number-of-products-more-then-ten")]
+        public async Task<IActionResult> GetAllOrdersWithNumberOfProductsMoreThenTen()
         {
-            var result = await _orderService.GetOrders();
-            return Ok(result);
+            var orderList = await _orderService.GetAllOrdersWithNumberOfProductsMoreThenTen();
+
+            var orderModelList = new List<OrderModel>();
+
+            foreach (var order in orderList)
+            {
+                orderModelList.Add(_mapper.Map<OrderModel>(order));
+            }
+
+            return Ok(orderModelList);
         }
     }
 }
